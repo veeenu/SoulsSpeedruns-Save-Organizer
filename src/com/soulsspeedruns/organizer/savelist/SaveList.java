@@ -728,12 +728,8 @@ public class SaveList extends JList<SaveListEntry> implements ListSelectionListe
 		e.consume();
 		requestFocusInWindow();
 		handleSelection(e);
-
-    // On Linux, isPopupTrigger is only set on mouse pressed events and not on mouse
-    // released events.
-    if (System.getProperty("os.name").equalsIgnoreCase("linux") && e.isPopupTrigger()) {
+		if (e.isPopupTrigger())
 			new SaveListContextMenu(this, e.getX(), e.getY());
-    }
 	}
 
 
